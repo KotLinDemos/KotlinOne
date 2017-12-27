@@ -4,6 +4,8 @@ package com.bwie.bean
  * Created by dell on 2017/12/27.
  */
 
+
+
 data class Homebean(
 		val issueList: List<Issue>,
 		val nextPageUrl: String, //http://baobab.kaiyanapp.com/api/v2/feed?date=1514163600000&num=2
