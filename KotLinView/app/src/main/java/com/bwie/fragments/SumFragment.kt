@@ -2,7 +2,6 @@ package com.bwie.fragments
 
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import com.bwie.adapter.SumAdapter
 import com.bwie.bean.HotBean
 import com.bwie.kotlinview.R
@@ -29,7 +28,7 @@ class SumFragment : BaseFragment(),IHotView {
 
         if(arguments!=null){
             mStrategy = arguments.getString("bin")
-            Log.e("TAG",mStrategy)
+
             mPresenter = HotPresenter(this)
             mPresenter.lianjie(mStrategy)
 

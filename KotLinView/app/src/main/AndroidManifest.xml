@@ -23,10 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".ShipingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|uiMode"
             android:theme="@style/AppTheme"></activity>
      <!-- <activity android:name=".PicActivity" />-->
+=======
+>>>>>>> 8b90adc2e7f30da3683ddbafdee12a0a98e1b22b
         <activity android:name=".SaveActivity" />
         <activity android:name=".AdviseActivity" />
         <activity android:name=".WatchActivity" />
