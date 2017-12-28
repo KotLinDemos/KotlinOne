@@ -22,7 +22,7 @@ class ShipingActivity : AppCompatActivity() {
         IjkMediaPlayer.native_profileBegin("libijkplayer.so")
         var ship_ijkPlayer: IjkVideoView =findViewById(R.id.ship_ijkPlayer) as IjkVideoView
         val ship_descrpotion:TextView = findViewById(R.id.ship_descrpotion) as TextView
-        
+
         val controller = AndroidMediaController(this, false)
         ship_ijkPlayer.setMediaController(controller)
 
