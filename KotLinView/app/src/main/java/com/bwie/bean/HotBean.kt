@@ -21,7 +21,6 @@ class HotBean {
 
 		class DataBean {
 
-
 			var dataType: String? = null
 			var id: Int = 0
 			var title: String? = null
