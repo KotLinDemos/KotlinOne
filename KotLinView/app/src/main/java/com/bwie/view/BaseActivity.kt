@@ -10,7 +10,7 @@ abstract class BaseActivity<T> : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(layoutId())
         initView()
-        getPresenter()
+        presenter=getPresenter()
         initData()
     }
 

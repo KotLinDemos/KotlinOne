@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="250dp"
+    android:layout_gravity="center"
+    android:id="@+id/findr"
+    android:background="#fff">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:id="@+id/beijingtu"
+        android:gravity="center"
+        android:src="@mipmap/ic_launcher"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="曹利璐"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:id="@+id/findname"
+        />
+</RelativeLayout>
