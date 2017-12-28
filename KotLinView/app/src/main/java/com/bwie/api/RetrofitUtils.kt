@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Created by 朝朝暮暮 on 2017/12/28.
  */
-class RetrofitUtils (baseUrl:String){
+class RetrofitUtils(baseUrl:String){
 
 
     var url:String = baseUrl
@@ -38,8 +38,8 @@ class RetrofitUtils (baseUrl:String){
     companion object {
 
         @Volatile
-        var instance:RetrofitUtils? = null
-        fun getInstance(baseUrl:String):RetrofitUtils{
+        var instance: RetrofitUtils? = null
+        fun getInstance(baseUrl:String): RetrofitUtils {
             if(instance==null){
                 synchronized(RetrofitUtils::class.java){
                     if(instance==null){

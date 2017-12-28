@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,11 +52,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/pic"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@mipmap/ic_eye" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:actualImageScaleType="focusCrop"
+                android:background="@mipmap/ic_eye"
+                app:placeholderImage="@mipmap/ic_eye"
+                app:roundAsCircle="true"
+                />
         </LinearLayout>
 
     </FrameLayout>

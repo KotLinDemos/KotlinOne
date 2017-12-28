@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:padding="15dp"
-        android:text="https://github.com/LRH1993"
+        android:text="https://github.com/"
         android:textColor="@color/black"
         android:textSize="16sp"/>
 
@@ -139,7 +139,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:padding="15dp"
-        android:text="www.lruheng.com"
+        android:text="http://my.csdn.net/?ref=toolbar"
         android:textColor="@color/black"
         android:textSize="16sp"/>
 

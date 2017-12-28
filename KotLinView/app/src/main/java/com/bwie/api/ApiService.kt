@@ -2,9 +2,13 @@ package com.bwie.api
 
 import com.bwie.bean.Homebean
 import com.bwie.bean.HotBean
+import com.bwie.sctouxiang.ResultBean
+import com.bwie.sctouxiang.UserBean
 import io.reactivex.Flowable
-import retrofit2.http.GET
-import retrofit2.http.Query
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.http.*
 
 /**
  * Created by dell on 2017/12/27.
@@ -17,4 +21,14 @@ interface ApiService{
     @GET("v3/ranklist")
     fun getHotData(@Query("num")num:Int,@Query("strategy")strategy:String,@Query("udid")udid:String,
                    @Query("vc")vc:Int) : Flowable<HotBean>
+
+    //上传头像
+    //https://www.zhaoapi.cn/file/upload
+
+    @Multipart
+    @POST("file/upload")
+    fun uploadPic(@Part("uid") uid: RequestBody, @Part file: MultipartBody.Part): Call<ResultBean>
+
+    @GET("user/getUserInfo?uid=552&token=4B5DAF274221936555E01E5F7BC271F4")
+    fun getdd(): Flowable<UserBean>
 }
