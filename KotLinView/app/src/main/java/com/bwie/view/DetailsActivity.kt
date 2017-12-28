@@ -26,7 +26,7 @@ class DetailsActivity : AppCompatActivity() {
         var video: JZVideoPlayerStandard = videoplayer
 
 
-        video!!.setUp(movies.playUrl,JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL,"")
+        video!!.setUp(movies.playUrl,JZVideoPlayerStandard.SCREEN_WINDOW_NORMAL,movies.title)
 //        video.thumbImageView.setImageURI(Uri.parse("http://img.kaiyanapp.com/29b4b68d7210ece1cba8e45ab10ce349.png?imageMogr2/quality/60/format/jpg"))
 //        JZVideoPlayerStandard.startFullscreen(this,JZVideoPlayerStandard::class.jwava,get.toString(),"辛苦了")
         Picasso.with(this)
