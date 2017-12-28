@@ -1,10 +1,13 @@
 package com.bwie.kotlinview
 
+import android.content.Context
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_shiping.*
 import tv.danmaku.ijk.media.player.IjkMediaPlayer
 import tv.danmaku.ijk.media.widget.media.AndroidMediaController
@@ -18,10 +21,17 @@ class ShipingActivity : AppCompatActivity() {
         IjkMediaPlayer.loadLibrariesOnce(null)
         IjkMediaPlayer.native_profileBegin("libijkplayer.so")
         var ship_ijkPlayer: IjkVideoView =findViewById(R.id.ship_ijkPlayer) as IjkVideoView
+        val ship_descrpotion:TextView = findViewById(R.id.ship_descrpotion) as TextView
+        
         val controller = AndroidMediaController(this, false)
         ship_ijkPlayer.setMediaController(controller)
-        val url = "https://wdl.wallstreetcn.com/41aae4d2-390a-48ff-9230-ee865552e72d"
-        ship_ijkPlayer.setVideoURI(Uri.parse(url))
+
+
+        var playUrl=intent.getStringExtra("playUrl")
+        var description=intent.getStringExtra("description")
+
+       // val url = "https://wdl.wallstreetcn.com/41aae4d2-390a-48ff-9230-ee865552e72d"
+        ship_ijkPlayer.setVideoURI(Uri.parse(playUrl))
         ship_ijkPlayer.start()
     }
     fun setOrientation(orientation:Int){
