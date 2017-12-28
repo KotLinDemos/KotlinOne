@@ -1,11 +1,13 @@
 package com.bwie.fragments
 
+import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.bwie.adapter.SumAdapter
 import com.bwie.bean.HotBean
 import com.bwie.kotlinview.R
 import com.bwie.presenter.HotPresenter
+import com.bwie.view.DetailsActivity
 import com.bwie.view.IHotView
 import kotlinx.android.synthetic.main.fragment_sum.*
 
@@ -37,7 +39,16 @@ class SumFragment : BaseFragment(),IHotView {
 
         val adapter = SumAdapter(context, bean.itemList!!)
         rv.adapter = adapter
+        adapter.setOnItemClickListener(object : SumAdapter.OnItemClickLitener{
+            override fun onItemClick(list: HotBean.ItemListBean.DataBean?) {
+                var intent = Intent()
+                intent.setClass(context, DetailsActivity::class.java)
 
+                intent.putExtra("moviesUrl",list!!.playUrl)
+                startActivity(intent)
+            }
+
+        })
         adapter.notifyDataSetChanged()
     }
 }

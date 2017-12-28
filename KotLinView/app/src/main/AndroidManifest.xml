@@ -3,8 +3,8 @@
     package="com.bwie.kotlinview">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name="com.bwie.app.MyApp"
@@ -25,7 +25,8 @@
         <activity android:name=".PicActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".AdviseActivity" />
-        <activity android:name=".WatchActivity"></activity>
+        <activity android:name=".WatchActivity" />
+        <activity android:name="com.bwie.view.DetailsActivity"></activity>
     </application>
 
 </manifest>

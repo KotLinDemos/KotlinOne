@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bwie.bean.HotBean
 import com.bwie.kotlinview.R
@@ -19,12 +20,24 @@ class SumAdapter(context:Context,list:List<HotBean.ItemListBean>) : RecyclerView
     var mcontext:Context = context
     var mlist:List<HotBean.ItemListBean> = list
 
+    interface OnItemClickLitener{
+        fun onItemClick(list: HotBean.ItemListBean.DataBean?)
+    }
+    var litener:OnItemClickLitener? = null
+    fun setOnItemClickListener(litener:OnItemClickLitener){
+        this.litener = litener
+    }
+
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         var viewholder:MyViewHolder = holder as MyViewHolder
 
         viewholder.tv_connect.setText(mlist.get(position).data!!.title)
         viewholder.tv_blow.setText(mlist.get(position).data!!.category+"/")
         viewholder.iv_bg.setImageURI(Uri.parse(mlist.get(position).data!!.cover!!.detail))
+        viewholder.rel.setOnClickListener{
+            litener?.onItemClick(mlist.get(position).data)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
@@ -39,5 +52,6 @@ class SumAdapter(context:Context,list:List<HotBean.ItemListBean>) : RecyclerView
         var iv_bg : SimpleDraweeView = itemView.findViewById(R.id.iv_bg)
         var tv_connect : TextView = itemView.findViewById(R.id.tv_connect)
         var tv_blow : TextView = itemView.findViewById(R.id.tv_blow)
+        var rel : RelativeLayout = itemView.findViewById(R.id.rel)
     }
 }
