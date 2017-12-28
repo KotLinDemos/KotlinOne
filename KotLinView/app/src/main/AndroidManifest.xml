@@ -22,7 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PicActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".AdviseActivity" />
         <activity android:name=".WatchActivity" />
