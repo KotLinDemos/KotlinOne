@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import com.bwie.adapter.SumAdapter
 import com.bwie.bean.HotBean
+import com.bwie.bean.MoviesBean
 import com.bwie.kotlinview.R
 import com.bwie.presenter.HotPresenter
 import com.bwie.view.DetailsActivity
@@ -34,7 +35,7 @@ class SumFragment : BaseFragment(),IHotView {
         }
     }
     override fun getData(bean: HotBean) {
-
+        var movies:MoviesBean = MoviesBean()
         val adapter = SumAdapter(context, bean.itemList!!)
         rv.adapter = adapter
         adapter.setOnItemClickListener(object : SumAdapter.OnItemClickLitener{
@@ -42,7 +43,17 @@ class SumFragment : BaseFragment(),IHotView {
                 var intent = Intent()
                 intent.setClass(context, DetailsActivity::class.java)
 
-                intent.putExtra("moviesUrl",list!!.playUrl)
+                movies.playUrl = list!!.playUrl!!
+                movies.feed = list.cover!!.feed!!
+                movies.blurred=list.cover!!.blurred!!
+                movies.category=list.category!!
+                movies.title=list.title!!
+                movies.description=list.description!!
+                movies.collectionCont=""+list.consumption!!.collectionCount!!
+                movies.replyCount=""+list.consumption!!.replyCount!!
+                movies.shareCount=""+list.consumption!!.shareCount!!
+
+                intent.putExtra("movies",movies)
                 startActivity(intent)
             }
 
