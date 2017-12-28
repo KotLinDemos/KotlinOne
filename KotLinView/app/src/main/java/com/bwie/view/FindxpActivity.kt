@@ -1,44 +1,35 @@
 package com.bwie.view
 
+import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.TextView
 import com.bwie.adapter.FindxqAdapter
 import com.bwie.bean.findxqbean
 import com.bwie.kotlinview.R
-
 import com.bwie.presenter.FindxqPresenter
+import kotlinx.android.synthetic.main.activity_findxp.*
 
-class FindxpActivity : BaseActivity<FindxqPresenter>() ,IFindxqView{
-    override fun showData(findxqlist: List<findxqbean.ItemListBean>) {
+class FindxpActivity : AppCompatActivity() ,IFindxqView{
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_findxp)
+        var recy=findViewById(R.id.findxqrv) as RecyclerView
+        var name=findViewById(R.id.findccc) as TextView
+        var int=intent.getStringExtra("findname")
+        name!!.text=int
+        var pre=FindxqPresenter(this)
+        pre!!.xq(int)
+    }
+    override fun showData(findxqlist: findxqbean) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        var adapter=FindxqAdapter(this,findxqlist as ArrayList<findxqbean.ItemListBean>)
-        var  recy=findViewById(R.id.findxqrv) as RecyclerView;
-        recy.layoutManager=LinearLayoutManager(this)
-        recy.adapter=adapter
+        val itemList = findxqlist.itemList
+        var adapter= FindxqAdapter(this, findxqlist.itemList!!)
+//        var  recy=findViewById(R.id.findxqrv) as RecyclerView
+        findxqrv.layoutManager= LinearLayoutManager(this)
+        findxqrv.adapter=adapter
     }
-
-    override fun layoutId(): Int=R.layout.activity_findxp
-    override fun initView() {
-        var  recy=findViewById(R.id.findxqrv) as RecyclerView;
-        var findccc=findViewById(R.id.findccc) as TextView
-        var intent=getIntent()
-        var name:String= intent.getStringExtra("findname")
-        Log.i("xxx",name.toString())
-        findccc?.text=name
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun getPresenter(): FindxqPresenter {
-        return  FindxqPresenter(this)
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun initData() {
-       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        presenter!!.xq()
-    }
-
-
 }
+

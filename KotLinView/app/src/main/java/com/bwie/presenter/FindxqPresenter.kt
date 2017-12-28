@@ -13,24 +13,25 @@ import io.reactivex.subscribers.DisposableSubscriber
  */
 class FindxqPresenter (findxqvire:IFindxqView){
     val model:FindxqModel?= FindxqModel()
-    val view:IFindxqView?=findxqvire
-    fun xq(){
-        val findxq=model!!.getServerData()
+    val view:IFindxqView=findxqvire
+    fun xq(name:String){
+
+        val findxq=model!!.getServerData(name)
         findxq.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSubscriber<List<findxqbean.ItemListBean>>() {
+                .subscribeWith(object : DisposableSubscriber<findxqbean>() {
                     override fun onComplete() {
                         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
                     override fun onError(t: Throwable?) {
-                       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                       Log.e("TAG",t.toString())
                     }
 
-                    override fun onNext(t: List<findxqbean.ItemListBean>?) {
+                    override fun onNext(t: findxqbean) {
                        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                        Log.i("xxx",t.toString())
-                        view!!.showData(t!!)
+                        view.showData(t!!)
                     }
 
                 })

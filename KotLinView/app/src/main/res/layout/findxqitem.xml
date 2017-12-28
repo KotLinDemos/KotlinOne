@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="300dp"
     android:id="@+id/findxqtiao"
-    android:layout_gravity="center"
-    android:background="#ff3660">
+    android:layout_gravity="center">
 
         <ImageView
             android:layout_width="match_parent"
@@ -14,15 +13,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:text="曹利璐"
             android:id="@+id/findxqnamee"
             android:textColor="#fff"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal"
             android:id="@+id/linearLayout"
