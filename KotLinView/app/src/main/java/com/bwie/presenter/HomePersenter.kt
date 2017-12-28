@@ -16,22 +16,21 @@ class HomePersenter(homeView: HomeView) {
     val homeView:HomeView?=homeView
 
     fun home(){
-        val flowable = molder!!.getDataMolder()
+        val flowable=molder!!.getDataMolder()
         flowable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSubscriber<List<Homebean>>(){
-                    override fun onNext(t: List<Homebean>?) {
-                       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                        homeView!!.getData(t!!)
-
-                    }
-
-                    override fun onComplete() {
-                       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                .subscribeWith(object : DisposableSubscriber<Homebean>() {
+                    override fun onNext(t: Homebean?) {
+                        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        homeView!!.showDataa(t!!)
                     }
 
                     override fun onError(t: Throwable?) {
-                       // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    }
+
+                    override fun onComplete() {
+                        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                     }
 
                 })

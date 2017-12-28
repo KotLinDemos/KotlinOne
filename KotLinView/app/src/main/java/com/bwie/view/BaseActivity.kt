@@ -15,8 +15,6 @@ abstract class BaseActivity<T> : AppCompatActivity() {
     }
 
 
-
-
     //获取布局Id
     abstract fun layoutId(): Int
     //初始化数据
