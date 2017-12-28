@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#a7a7a5"
+    tools:context="com.bwie.kotlinview.ShipingActivity">
+    <tv.danmaku.ijk.media.widget.media.IjkVideoView
+        android:id="@+id/ship_ijkPlayer"
+        android:layout_width="match_parent"
+        android:background="@color/black_overlay"
+        android:layout_height="300dp" />
+    <TextView
+        android:id="@+id/ship_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="111111"/>
+    <TextView
+        android:id="@+id/ship_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="111111"/>
+    <TextView
+        android:id="@+id/ship_descrpotion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="111111"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="wrap_content"
+               android:src="@mipmap/ic_action_favorites_without_padding"/>
+           <TextView
+               android:textColor="#fff"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="0"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_action_share_without_padding"/>
+            <TextView
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_action_reply_nopadding"/>
+            <TextView
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/action_download_cut"/>
+            <TextView
+                android:textColor="#fff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="缓存"/>
+</LinearLayout>
+</LinearLayout>

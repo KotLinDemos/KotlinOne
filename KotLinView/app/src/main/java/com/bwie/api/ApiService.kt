@@ -20,6 +20,11 @@ interface ApiService{
     //http://baobab.kaiyanapp.com/api/v2/feed?num=2&udid=26868b32e808498db32fd51fb422d00175e179df&vc=83
     @GET("feed")
 
+<<<<<<< HEAD
+=======
+    fun getHome(@Query("num") num:Int,@Query("udid") udid:String,@Query("vc") vc:Int):Flowable<Homebean>
+
+>>>>>>> b6d59e81c1c2c0f9dadc8b349b00a5b47bb3a5c6
 
     fun getHome(@Query("num") num:String,@Query("udid") udid:String,@Query("vc") vc:String):Flowable<List<Homebean>>
 
