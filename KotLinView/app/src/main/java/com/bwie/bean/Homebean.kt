@@ -83,13 +83,11 @@ class Homebean {
                 var playUrl:String?=null
                 var duration:Long?=null
                 var category:String?=null
-
+                var cover:CorerBean?=null
                 var author: AuthorBean?=null
                 class AuthorBean{
                     var icon:String?=null
                 }
-
-                var cover:CorerBean?=null
         class CorerBean{
             var feed:String?=null
         }
