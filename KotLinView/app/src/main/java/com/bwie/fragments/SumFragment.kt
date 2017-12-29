@@ -32,7 +32,6 @@ class SumFragment : BaseFragment(),IHotView {
 
             mPresenter = HotPresenter(this)
             mPresenter.lianjie(mStrategy)
-
         }
     }
     override fun getData(bean: HotBean) {

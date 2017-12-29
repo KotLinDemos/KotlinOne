@@ -40,6 +40,7 @@ class WelcomeActivity : AppCompatActivity() {
                 var intent = Intent()
                 intent.setClass(this@WelcomeActivity,MainActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         })
     }

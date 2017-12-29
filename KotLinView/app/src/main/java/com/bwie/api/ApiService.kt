@@ -21,7 +21,6 @@ interface ApiService{
     @GET("feed")
     fun getHome(@Query("num") num:Int,@Query("udid") udid:String,@Query("vc") vc:Int):Flowable<Homebean>
 
-
     @GET("categories")
     fun getFind(@Query("udid") udid: String,@Query("vc")vc: String):Flowable<List<findbean>>
     @GET("videos")

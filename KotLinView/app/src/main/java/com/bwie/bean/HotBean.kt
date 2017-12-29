@@ -21,7 +21,6 @@ class HotBean {
 
 		class DataBean {
 
-
 			var dataType: String? = null
 			var id: Int = 0
 			var title: String? = null
@@ -126,6 +125,7 @@ class HotBean {
 				var collectionCount: Int = 0
 				var shareCount: Int = 0
 				var replyCount: Int = 0
+
 			}
 
 			class PlayInfoBean {

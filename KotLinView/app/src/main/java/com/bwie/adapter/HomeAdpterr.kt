@@ -1,22 +1,16 @@
 package com.bwie.adapter
 
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
-import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.bwie.bean.Homebean
-import com.bwie.fragments.HomeFragment
 import com.bwie.kotlinview.R
-import com.bwie.kotlinview.ShipingActivity
 import com.facebook.drawee.view.SimpleDraweeView
-import com.squareup.picasso.Picasso
 
 /**
  * Created by dell on 2017/12/27.
@@ -69,7 +63,7 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
 
                 title=list.get(position).data?.title
                 category = list.get(position).data?.category
-                description = list.get(position).data?.description
+                //description = list.get(position).data?.description
                 playUrl=list.get(position).data?.playUrl
                 Log.e("TAG",playUrl)
             }else{
@@ -77,7 +71,7 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
                 icon = list.get(5).data?.author?.icon
                 title=list.get(5).data?.title
                 category = list.get(5).data?.category
-                playUrl=list.get(5).data?.playUrl
+                //playUrl=list.get(5).data?.playUrl
             }
         holder?.home_feed?.setImageURI(Uri.parse(feed))
         holder?.home_title?.text=title
@@ -86,11 +80,11 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
        //holder?.home_category?.text = "发布于 $category/ $realMinute:$realSecond"
 
         holder?.home_feed?.setOnClickListener{
-            litener?.onItemClick(position)
-            var intent:Intent=Intent(context,ShipingActivity::class.java)
-            intent.putExtra("playUrl",playUrl)
-            intent.putExtra("description",description)
-            context.startActivity(intent)
+            litener?.onItemClick(list.get(position).data)
+          /*  var intent:Intent=Intent(context,DetailsActivity::class.java)
+           *//* intent.putExtra("playUrl",playUrl)
+            intent.putExtra("description",description)*//*
+            context.startActivity(intent)*/
         }
     }
 
@@ -104,7 +98,8 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
 
 
     interface OnItemClickLitener{
-        fun onItemClick(position : Int)
+       // fun onItemClick(position : Int)
+       fun onItemClick(list: Homebean.IssueListBean.ItemListBean.DataBean?)
     }
     var litener:OnItemClickLitener?=null
     fun setOniteClickListener(litener: OnItemClickLitener){

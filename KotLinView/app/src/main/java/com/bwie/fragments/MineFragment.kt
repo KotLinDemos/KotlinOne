@@ -50,7 +50,6 @@ class MineFragment : Fragment(),View.OnClickListener{
                 var it3=Intent(activity, WatchActivity::class.java)
                 startActivity(it3)
             }
-
         })
 
         advise.setOnClickListener(object :View.OnClickListener{
@@ -58,7 +57,6 @@ class MineFragment : Fragment(),View.OnClickListener{
                 var it2=Intent(activity,AdviseActivity::class.java)
                 startActivity(it2)
             }
-
         })
         save.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
@@ -113,8 +111,8 @@ class MineFragment : Fragment(),View.OnClickListener{
                 //           intent.setType("image/*");
                 startActivityForResult(intent, IMAGE)
                 val retrofit = RetrofitUtil2s.getRetrofit("https://www.zhaoapi.cn/")
-                val apiService = retrofit!!.create<ApiService>(ApiService::class.java)
-                val observable = apiService.getdd()
+                val apiService2 = retrofit!!.create<ApiService>(ApiService::class.java)
+                val observable = apiService2.getdd()
                 observable.subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeWith(object : DisposableSubscriber<UserBean>() {
