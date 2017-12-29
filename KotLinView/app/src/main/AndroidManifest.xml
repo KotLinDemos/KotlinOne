@@ -22,10 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name="com.bwie.view.FindxpActivity"></activity>
-
+        <activity android:name="com.bwie.view.FindxpActivity" />
 
         <!-- <activity android:name=".PicActivity" /> -->
         <activity android:name=".SaveActivity" />
@@ -35,7 +32,8 @@
             android:name="com.bwie.view.DetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
-        <activity android:name=".SearcActivity"></activity>
+        <activity android:name=".SearcActivity" />
+        <activity android:name=".CorrelationActivity"></activity>
     </application>
 
 </manifest>

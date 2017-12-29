@@ -1,9 +1,6 @@
 package com.bwie.api
 
-import com.bwie.bean.Homebean
-import com.bwie.bean.HotBean
-import com.bwie.bean.findbean
-import com.bwie.bean.findxqbean
+import com.bwie.bean.*
 import com.bwie.sctouxiang.ResultBean
 import com.bwie.sctouxiang.UserBean
 import io.reactivex.Flowable
@@ -19,9 +16,10 @@ import retrofit2.http.*
 interface ApiService{
     //http://baobab.kaiyanapp.com/api/v2/feed?num=2&udid=26868b32e808498db32fd51fb422d00175e179df&vc=83
     @GET("feed")
-
     fun getHome(@Query("num") num:Int,@Query("udid") udid:String,@Query("vc") vc:Int):Flowable<Homebean>
-
+    // http://baobab.kaiyanapp.com/api/v1/search?num=10&query=%E4%BD%A0&start=10
+    @GET("search")
+    fun getSearch(@Query("num") num:Int,@Query("query") query:String,@Query("start") start:Int):Flowable<CorretionBean>
 
     @GET("categories")
     fun getFind(@Query("udid") udid: String,@Query("vc")vc: String):Flowable<List<findbean>>
@@ -42,5 +40,8 @@ interface ApiService{
 
     @GET("user/getUserInfo?uid=552&token=4B5DAF274221936555E01E5F7BC271F4")
     fun getdd(): Flowable<UserBean>
+
+
+
 
 }

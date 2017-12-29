@@ -13,6 +13,7 @@ import com.bwie.adapter.HomeAdpterr
 import com.bwie.bean.Homebean
 import com.bwie.bean.MoviesBean
 import com.bwie.kotlinview.R
+import com.bwie.kotlinview.SearcActivity
 import com.bwie.presenter.HomePersenter
 import com.bwie.view.DetailsActivity
 import com.bwie.view.HomeView
@@ -31,9 +32,9 @@ class HomeFragment : BaseFragment(),HomeView {
         tv_title.setText("Friday")
         iv_title.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
-                Toast.makeText(context,"点了",Toast.LENGTH_SHORT).show()
-
-                
+               // Toast.makeText(context,"点了",Toast.LENGTH_SHORT).show()
+                val intent = Intent(context, SearcActivity::class.java)
+                startActivity(intent)
             }
 
         })

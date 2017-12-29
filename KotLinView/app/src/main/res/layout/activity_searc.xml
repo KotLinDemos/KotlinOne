@@ -9,6 +9,49 @@
     tools:context="com.bwie.kotlinview.SearcActivity">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    >
+    <ImageView
+        android:id="@+id/searc_imag"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/jiantou"/>
+    <EditText
+        android:id="@+id/search_edit"
+        android:layout_marginLeft="50dp"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:hint="帮你找到感兴趣的视频"
+       android:background="@null"/>
+    <ImageView
+        android:background="@mipmap/landing_countdown_background"
+        android:id="@+id/searc_imag1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="430dp"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/icon_search"/>
 </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:text="输入标题或描述的关键词找到更多视频"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="-热门搜索词-"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_recyview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

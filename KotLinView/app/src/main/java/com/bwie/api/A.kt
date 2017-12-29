@@ -17,6 +17,9 @@ class A{
         var findxq:String="http://baobab.kaiyanapp.com/api/v3/"
         var TEST = "http://baobab.wandoujia.com/api/"
 
+        var Corrtion="http://baobab.kaiyanapp.com/api/v1/"
+       // http://baobab.kaiyanapp.com/api/v1/search?num=10&query=%E4%BD%A0&start=10
+
     }
 
 }

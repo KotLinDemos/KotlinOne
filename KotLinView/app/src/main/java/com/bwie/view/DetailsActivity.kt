@@ -22,6 +22,7 @@ class DetailsActivity : AppCompatActivity() {
 
         val extras = intent.extras
         var movies : MoviesBean = extras.get("movies") as MoviesBean
+        var data : MoviesBean = extras.get("data") as MoviesBean
         var video: JZVideoPlayerStandard = videoplayer
 
 

@@ -17,8 +17,8 @@ import com.facebook.drawee.view.SimpleDraweeView
  */
 class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>): RecyclerView.Adapter<HomeAdpterr.MoHoder>() {
     private var context:Context=context
-
     private var list: List<Homebean.IssueListBean.ItemListBean> = list
+
     override fun getItemCount(): Int {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
        return list.size
@@ -54,7 +54,7 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
         }else{
             realSecond = second.toString()
         }*/
-            if(position>0){
+            if(position>1){
                 var bean = list.get(position)
                 var minute = bean?.data?.duration?.div(60)
 
@@ -67,11 +67,11 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
                 playUrl=list.get(position).data?.playUrl
                 Log.e("TAG",playUrl)
             }else{
-                feed = list.get(5).data?.cover?.feed
-                icon = list.get(5).data?.author?.icon
-                title=list.get(5).data?.title
-                category = list.get(5).data?.category
-                //playUrl=list.get(5).data?.playUrl
+                feed = list.get(4).data?.cover?.feed
+                icon = list.get(4).data?.author?.icon
+                title=list.get(4).data?.title
+                category = list.get(4).data?.category
+               // playUrl=list.get(5).data?.playUrl
             }
         holder?.home_feed?.setImageURI(Uri.parse(feed))
         holder?.home_title?.text=title

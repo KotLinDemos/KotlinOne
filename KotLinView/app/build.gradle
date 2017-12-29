@@ -48,6 +48,7 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'cn.jzvd:jiaozivideoplayer:6.2.3'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.android:flexbox:0.3.0-alpha2'
 }
 repositories {
     mavenCentral()
