@@ -23,17 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
 
         <activity android:name="com.bwie.view.FindxpActivity"></activity>
 
-        <activity android:name=".PicActivity" />
-        <activity android:name=".SaveActivity" />
-        <activity android:name=".AdviseActivity" />
-        <activity android:name=".WatchActivity" />
-        <activity android:name="com.bwie.view.DetailsActivity"></activity>
 
-=======
+
         <activity
             android:name=".ShipingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|uiMode"
@@ -45,7 +40,7 @@
         <activity android:name="com.bwie.view.DetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"/>
->>>>>>> b6d59e81c1c2c0f9dadc8b349b00a5b47bb3a5c6
+
     </application>
 
 </manifest>

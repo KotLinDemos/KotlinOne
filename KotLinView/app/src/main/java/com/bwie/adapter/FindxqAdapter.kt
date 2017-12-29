@@ -1,15 +1,15 @@
 package com.bwie.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.bwie.bean.findxqbean
 import com.bwie.kotlinview.R
-import com.squareup.picasso.Picasso
+import com.facebook.drawee.view.SimpleDraweeView
 
 
 /**
@@ -24,8 +24,7 @@ class FindxqAdapter (content:Context,list: List<findxqbean.ItemListBean>) : Recy
         holder?.chuan?.text=list.get(position).data!!.category;
         holder?.name?.text=list.get(position).data!!.title
         var a =""+list.get(position).data!!.duration
-        Picasso.with(content).load(""+list.get(position).data?.cover?.feed).into(holder?.img)
-
+         holder?.img?.setImageURI(Uri.parse(list.get(position).data!!.cover!!.detail))
         holder?.shi?.text= a
         }
 
@@ -39,7 +38,7 @@ class FindxqAdapter (content:Context,list: List<findxqbean.ItemListBean>) : Recy
        return list.size
     }
     class Mhlder(itemview:View?) :RecyclerView.ViewHolder(itemview){
-        var img:ImageView=itemview!!.findViewById(R.id.findxqtu)
+        var img: SimpleDraweeView =itemview!!.findViewById(R.id.findxqtu)
         var name:TextView=itemview!!.findViewById(R.id.findxqnamee)
         var chuan:TextView=itemview!!.findViewById(R.id.chuanguolai)
         var shi:TextView=itemview!!.findViewById(R.id.findxqshijin)
