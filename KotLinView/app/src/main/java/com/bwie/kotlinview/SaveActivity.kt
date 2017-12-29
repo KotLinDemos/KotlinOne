@@ -2,6 +2,7 @@ package com.bwie.kotlinview
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -28,6 +29,9 @@ class SaveActivity : AppCompatActivity() {
 
         if(playurl == null){
             tv_hint.visibility = View.VISIBLE
+        }else{
+            tv_save.setText(title)
+            simple.setImageURI(Uri.parse(feed))
         }
 
 
