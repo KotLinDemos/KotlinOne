@@ -71,7 +71,7 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
                 icon = list.get(4).data?.author?.icon
                 title=list.get(4).data?.title
                 category = list.get(4).data?.category
-               // playUrl=list.get(5).data?.playUrl
+
             }
         holder?.home_feed?.setImageURI(Uri.parse(feed))
         holder?.home_title?.text=title

@@ -2,17 +2,17 @@ package com.bwie.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bwie.bean.findbean
 import com.bwie.kotlinview.R
 import com.bwie.view.FindxpActivity
-import com.squareup.picasso.Picasso
+import com.facebook.drawee.view.SimpleDraweeView
 
 /**
  * Created by cll on 2017/12/27.
@@ -28,7 +28,8 @@ class FindAdapter (context:Context,list: ArrayList<findbean>): RecyclerView.Adap
     override fun onBindViewHolder(holder: FindAdapter.Mhanler?, position: Int) {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
        holder?.name?.text=list.get(position).name
-        Picasso.with(context).load(list.get(position).bgPicture).into(holder?.img)
+
+        holder?.img?.setImageURI(Uri.parse(list.get(position).bgPicture))
         holder?.buji?.setOnClickListener({
             var inten=Intent(context,FindxpActivity::class.java)
             inten.putExtra("findname",list.get(position).name)
@@ -44,7 +45,7 @@ class FindAdapter (context:Context,list: ArrayList<findbean>): RecyclerView.Adap
 
     class Mhanler(itemView:View?):RecyclerView.ViewHolder(itemView){
            var name:TextView=itemView!!.findViewById(R.id.findname);
-           var img:ImageView=itemView!!.findViewById(R.id.beijingtu);
+           var img: SimpleDraweeView =itemView!!.findViewById(R.id.beijingtu);
            var buji:RelativeLayout=itemView!!.findViewById(R.id.findr)
     }
 }

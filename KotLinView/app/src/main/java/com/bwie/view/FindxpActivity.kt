@@ -27,7 +27,6 @@ class FindxpActivity : AppCompatActivity() ,IFindxqView{
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         val itemList = findxqlist.itemList
         var adapter= FindxqAdapter(this, findxqlist.itemList!!)
-//        var  recy=findViewById(R.id.findxqrv) as RecyclerView
         findxqrv.layoutManager= LinearLayoutManager(this)
         findxqrv.adapter=adapter
     }

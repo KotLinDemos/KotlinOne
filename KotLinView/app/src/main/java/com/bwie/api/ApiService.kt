@@ -17,9 +17,11 @@ interface ApiService{
     //http://baobab.kaiyanapp.com/api/v2/feed?num=2&udid=26868b32e808498db32fd51fb422d00175e179df&vc=83
     @GET("feed")
     fun getHome(@Query("num") num:Int,@Query("udid") udid:String,@Query("vc") vc:Int):Flowable<Homebean>
+
     // http://baobab.kaiyanapp.com/api/v1/search?num=10&query=%E4%BD%A0&start=10
     @GET("search")
     fun getSearch(@Query("num") num:Int,@Query("query") query:String,@Query("start") start:Int):Flowable<CorretionBean>
+
 
     @GET("categories")
     fun getFind(@Query("udid") udid: String,@Query("vc")vc: String):Flowable<List<findbean>>

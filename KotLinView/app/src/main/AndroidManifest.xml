@@ -31,9 +31,14 @@
         <activity
             android:name="com.bwie.view.DetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+
             android:screenOrientation="portrait" />
         <activity android:name=".SearcActivity" />
         <activity android:name=".CorrelationActivity"></activity>
+
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SearcActivity"></activity>
+
     </application>
 
 </manifest>
