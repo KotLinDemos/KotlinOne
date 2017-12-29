@@ -10,18 +10,5 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="50dp">
-    <ImageView
-        android:id="@+id/searc_imag"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@mipmap/jiantou"/>
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="" />
-    <ImageView
-        android:id="@+id/searc_imag"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:src="@mipmap/jiantou"/>
 </RelativeLayout>
 </LinearLayout>

@@ -4,44 +4,45 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Toast
 import com.bwie.adapter.HomeAdpterr
 import com.bwie.bean.Homebean
 import com.bwie.bean.MoviesBean
 import com.bwie.kotlinview.R
-import com.bwie.kotlinview.R.layout
-import com.bwie.kotlinview.SearcActivity
 import com.bwie.presenter.HomePersenter
 import com.bwie.view.DetailsActivity
 import com.bwie.view.HomeView
 import kotlinx.android.synthetic.main.home_fragment.*
+import kotlinx.android.synthetic.main.title.*
 
 /**
  * Created by ${单巨廷} on 2017/12/27.
  */
-class HomeFragment<T:HomePersenter> : Fragment(),HomeView {
+class HomeFragment : BaseFragment(),HomeView {
+    override fun getLayoutId(): Int {
+        return R.layout.home_fragment
+    }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view = inflater!!.inflate(layout.home_fragment, container, false)
-        var home_recyview=view.findViewById(R.id.home_recyview) as RecyclerView
-        var home_sousuo=view.findViewById<ImageView>(R.id.home_sousuo)
-        home_sousuo.setOnClickListener(View.OnClickListener {
-            val intent = Intent(context, SearcActivity::class.java)
-            startActivity(intent)
+    override fun initview() {
+        tv_title.setText("Friday")
+        iv_title.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                Toast.makeText(context,"点了",Toast.LENGTH_SHORT).show()
+
+                
+            }
+
         })
-      /*  home_sousuo.setOnClickListener(View.OnClickListener {
-            val intent = Intent(context, SearchActivity::class.java)
-            context.startActivity(intent)
-        })*/
         val goodsPersenter = HomePersenter(this)
         goodsPersenter.home()
-        return view
     }
+
+
+
     override fun showDataa(homebean: Homebean) {
         Log.e("xxx",homebean.newestIssueType.toString())
         val itemList = homebean.issueList!!.get(0).itemList!!

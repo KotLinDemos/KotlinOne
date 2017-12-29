@@ -26,10 +26,6 @@
 
         <activity android:name="com.bwie.view.FindxpActivity"></activity>
 
-        <activity
-            android:name=".ShipingActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize|uiMode"
-            android:theme="@style/AppTheme" />
 
         <!-- <activity android:name=".PicActivity" /> -->
         <activity android:name=".SaveActivity" />
