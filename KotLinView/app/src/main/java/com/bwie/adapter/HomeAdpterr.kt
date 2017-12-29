@@ -1,26 +1,33 @@
 package com.bwie.adapter
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bwie.bean.Homebean
+import com.bwie.fragments.HomeFragment
 import com.bwie.kotlinview.R
+import com.bwie.kotlinview.ShipingActivity
+import com.facebook.drawee.view.SimpleDraweeView
 import com.squareup.picasso.Picasso
 
 /**
  * Created by dell on 2017/12/27.
  */
-class HomeAdpterr(context:Context,list:Homebean): RecyclerView.Adapter<HomeAdpterr.MoHoder>() {
+class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>): RecyclerView.Adapter<HomeAdpterr.MoHoder>() {
     private var context:Context=context
 
-    private var list: Homebean = list
+    private var list: List<Homebean.IssueListBean.ItemListBean> = list
     override fun getItemCount(): Int {
        // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-       return list.issueList!!.size
+       return list.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HomeAdpterr.MoHoder {
@@ -30,22 +37,19 @@ class HomeAdpterr(context:Context,list:Homebean): RecyclerView.Adapter<HomeAdpte
 
     override fun onBindViewHolder(holder: HomeAdpterr.MoHoder?, position: Int) {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-       // holder?.home_category?.text=list.issueList.get(position).itemList.get(1)
-       // var title=list.issueList.get(1).itemList.get(position).data.title
-      /*  for(var i:Int=1;i<list.issueList!!.size;i++){
 
-        }*/
-      /*  var listt= ArrayList<String>()
-        var positio:Int=1
-        for(positio in listt){
-            listt.add(positio)
-        }*/
-        var bean = list.issueList!!.get(position).itemList!!.get(2)
-        var realMinute : String
-        var realSecond : String
+
+        var feed:String? = null
+        var playUrl:String? = null
+        var title:String? = null
+        var category:String? = null
+        var icon:String? = null
+        var description:String? = null
+        val bean = list?.get(position)
         var minute = bean?.data?.duration?.div(60)
         var second = bean?.data?.duration?.minus((minute?.times(60)) as Long )
-        holder?.home_title?.text=list.issueList!!.get(position).itemList!!.get(2).data!!.title
+     /*   var realMinute : String
+        var realSecond : String
         if(minute!!<10){
             realMinute = "0"+minute
         }else{
@@ -55,28 +59,50 @@ class HomeAdpterr(context:Context,list:Homebean): RecyclerView.Adapter<HomeAdpte
             realSecond = "0"+second
         }else{
             realSecond = second.toString()
-        }
-        //holder?.home_category?.text=
-        val category = list.issueList!!.get(position).itemList!!.get(2).data!!.category
-        holder?.home_category?.text = "发布于 $category/ $realMinute:$realSecond"
+        }*/
+            if(position>0){
+                var bean = list.get(position)
+                var minute = bean?.data?.duration?.div(60)
 
-        val icon = list.issueList!!.get(position).itemList!!.get(2).data!!.author!!.icon
-        Picasso.with(context).load(icon).placeholder(R.mipmap.ic_launcher).into(holder?.home_icon)
+                feed = list.get(position).data?.cover?.feed
+                icon = list.get(position).data?.author?.icon
 
-        val feed = list.issueList!!.get(position).itemList!!.get(2).data!!.cover!!.feed
-        Picasso.with(context).load(feed).placeholder(R.mipmap.ic_launcher).into(holder?.home_feed)
+                title=list.get(position).data?.title
+                category = list.get(position).data?.category
+                description = list.get(position).data?.description
+                playUrl=list.get(position).data?.playUrl
+                Log.e("TAG",playUrl)
+            }else{
+                feed = list.get(5).data?.cover?.feed
+                icon = list.get(5).data?.author?.icon
+                title=list.get(5).data?.title
+                category = list.get(5).data?.category
+                playUrl=list.get(5).data?.playUrl
+            }
+        holder?.home_feed?.setImageURI(Uri.parse(feed))
+        holder?.home_title?.text=title
+        holder?.home_category?.text="发布于 $category"
+        holder?.home_icon?.setImageURI(Uri.parse(icon))
+       //holder?.home_category?.text = "发布于 $category/ $realMinute:$realSecond"
+
         holder?.home_feed?.setOnClickListener{
             litener?.onItemClick(position)
+            var intent:Intent=Intent(context,ShipingActivity::class.java)
+            intent.putExtra("playUrl",playUrl)
+            intent.putExtra("description",description)
+            context.startActivity(intent)
         }
-
     }
 
     class MoHoder(itemview:View): RecyclerView.ViewHolder(itemview) {
-        var home_icon:ImageView=itemview!!.findViewById(R.id.home_icon)
-        var home_feed:ImageView=itemview!!.findViewById(R.id.home_feed)
+        var home_icon:SimpleDraweeView=itemview!!.findViewById(R.id.home_icon)
+        var home_feed: SimpleDraweeView =itemview!!.findViewById(R.id.home_feed)
         var home_title:TextView=itemview!!.findViewById(R.id.home_title)
         var home_category:TextView=itemview!!.findViewById(R.id.home_category)
     }
+
+
+
     interface OnItemClickLitener{
         fun onItemClick(position : Int)
     }
@@ -84,4 +110,5 @@ class HomeAdpterr(context:Context,list:Homebean): RecyclerView.Adapter<HomeAdpte
     fun setOniteClickListener(litener: OnItemClickLitener){
         this.litener=litener
     }
+
 }

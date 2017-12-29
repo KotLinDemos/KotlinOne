@@ -21,7 +21,7 @@ class FindFragment : Fragment() ,IFindview {
         //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 
         var adapter=FindAdapter(activity,findlist as ArrayList<findbean>)
-        var re=view!!.findViewById(R.id.findrlv) as RecyclerView;
+        var re=view!!.findViewById(R.id.findr) as RecyclerView;
 
         re.layoutManager=GridLayoutManager(activity,2)
         re.adapter=adapter
@@ -29,7 +29,7 @@ class FindFragment : Fragment() ,IFindview {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.find_fragment, container, false)
-        var re=view.findViewById(R.id.findrlv) as RecyclerView;
+        var re=view.findViewById(R.id.findr) as RecyclerView;
         var pre= FindPresenter(this)
         pre!!.ff()
         return view

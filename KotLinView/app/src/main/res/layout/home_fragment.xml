@@ -22,7 +22,7 @@
             android:layout_marginLeft="200dp"
             />
         <ImageView
-            android:id="@+id/sousuo"
+            android:id="@+id/home_sousuo"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@mipmap/icon_search"
