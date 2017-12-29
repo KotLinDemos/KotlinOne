@@ -67,11 +67,11 @@ class HomeAdpterr(context:Context,list:List<Homebean.IssueListBean.ItemListBean>
                 playUrl=list.get(position).data?.playUrl
                 Log.e("TAG",playUrl)
             }else{
-                feed = list.get(5).data?.cover?.feed
-                icon = list.get(5).data?.author?.icon
-                title=list.get(5).data?.title
-                category = list.get(5).data?.category
-                //playUrl=list.get(5).data?.playUrl
+                feed = list.get(4).data?.cover?.feed
+                icon = list.get(4).data?.author?.icon
+                title=list.get(4).data?.title
+                category = list.get(4).data?.category
+//                playUrl=list.get(4).data?.playUrl
             }
         holder?.home_feed?.setImageURI(Uri.parse(feed))
         holder?.home_title?.text=title
