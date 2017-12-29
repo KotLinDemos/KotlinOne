@@ -1,6 +1,7 @@
 package com.bwie.view
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -21,8 +22,6 @@ class DetailsActivity : AppCompatActivity() {
 
         val extras = intent.extras
         var movies : MoviesBean = extras.get("movies") as MoviesBean
-
-
         var video: JZVideoPlayerStandard = videoplayer
 
 
@@ -47,6 +46,13 @@ class DetailsActivity : AppCompatActivity() {
         tv_video_download.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 Toast.makeText(this@DetailsActivity,"别点我了",Toast.LENGTH_SHORT).show()
+
+                var shard : SharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE)
+                val edit = shard.edit()
+                edit.putString("playurl",movies.playUrl)
+                edit.putString("title",movies.title)
+                edit.putString("feed",movies.feed)
+                edit.commit()
             }
 
         })

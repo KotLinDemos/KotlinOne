@@ -24,7 +24,13 @@ class FindxqAdapter (content:Context,list: List<findxqbean.ItemListBean>) : Recy
         holder?.chuan?.text=list.get(position).data!!.category;
         holder?.name?.text=list.get(position).data!!.title
         var a =""+list.get(position).data!!.duration
-         holder?.img?.setImageURI(Uri.parse(list.get(position).data!!.cover!!.detail))
+
+
+        if(position>0){
+            holder?.img?.setImageURI(Uri.parse(list.get(position).data?.cover?.detail))
+        }else{
+            holder?.img?.setImageURI(Uri.parse(list.get(5).data?.cover?.detail))
+        }
         holder?.shi?.text= a
         }
 

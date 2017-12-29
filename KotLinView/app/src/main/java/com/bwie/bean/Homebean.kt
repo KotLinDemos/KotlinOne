@@ -68,7 +68,7 @@ class Homebean {
                  * labelList : null
                  * header : null
                  */
-
+               // var consumption: HotBean.ItemListBean.DataBean.ConsumptionBean? = null
                 var dataType: String? = null
                 var id: Int = 0
                 var title: String? = null
@@ -83,17 +83,27 @@ class Homebean {
                 var playUrl:String?=null
                 var duration:Long?=null
                 var category:String?=null
-
+                var cover:CorerBean?=null
                 var author: AuthorBean?=null
+                var consumption: ConsumptionBean? = null
+
                 class AuthorBean{
                     var icon:String?=null
                 }
 
-                var cover:CorerBean?=null
         class CorerBean{
             var feed:String?=null
+            var detail: String? = null
+            var blurred: String? = null
+            var sharing: Any? = null
+            var homepage: String? = null
         }
+                class ConsumptionBean {
+                    var collectionCount: Int = 0
+                    var shareCount: Int = 0
+                    var replyCount: Int = 0
 
+                }
             }
         }
     }
