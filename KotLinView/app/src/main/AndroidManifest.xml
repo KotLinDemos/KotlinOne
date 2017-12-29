@@ -27,15 +27,15 @@
             android:configChanges="orientation|keyboardHidden|screenSize|uiMode"
             android:theme="@style/AppTheme" />
 
-
-
         <!-- <activity android:name=".PicActivity" /> -->
         <activity android:name=".SaveActivity" />
         <activity android:name=".AdviseActivity" />
         <activity android:name=".WatchActivity" />
-        <activity android:name="com.bwie.view.DetailsActivity"
+        <activity
+            android:name="com.bwie.view.DetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".SearcActivity"></activity>
     </application>
 
 </manifest>

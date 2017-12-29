@@ -126,6 +126,7 @@ class HotBean {
 				var collectionCount: Int = 0
 				var shareCount: Int = 0
 				var replyCount: Int = 0
+
 			}
 
 			class PlayInfoBean {
